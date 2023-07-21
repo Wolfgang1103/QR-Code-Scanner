@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>QR Code Scanner</title>
+	<script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+  <style>
+    #reader{
+      width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div style="font-size:50px; text-align:center;">QR Scanner</div>
+<div id="reader"></div>
+<div id="result"></div>
+</body>
+<script>
+	const Scanner = new Html5QrcodeScanner(
+  "reader",
+  { fps: 20, qrbox: {width: 300, height: 300}});
+Scanner.render(Success, Failure);
+
+	function Success(result) {
+    window.location.href=result;
+
+  scanner.clear();
+document.getElementById('reader').remove();
+}
+
+function Failure(err) {
+  console.error(err);
+}
+</script>
+</html>
